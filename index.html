@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Finanzas Personales</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mi Sistema de Finanzas Personales</h1>
+        
+        <div class="tabs">
+            <button class="tab-button active" data-tab="savings">Ahorros</button>
+            <button class="tab-button" data-tab="expenses">Gastos</button>
+            <button class="tab-button" data-tab="overview">Resumen</button>
+            <button class="tab-button" data-tab="settings">Configuración</button>
+        </div>
+
+        <div id="savings" class="tab-content active">
+            <h2>Gestionar Ahorros</h2>
+            <form id="savings-form">
+                <label for="savings-type">Tipo:</label>
+                <select id="savings-type" required>
+                    <option value="deposit">Depositar</option>
+                    <option value="withdraw">Retirar</option>
+                </select>
+
+                <label for="savings-amount">Monto (USD):</label>
+                <input type="number" id="savings-amount" step="0.01" required>
+                
+                <label for="savings-date">Fecha:</label>
+                <input type="date" id="savings-date" required>
+                
+                <label for="savings-time">Hora:</label>
+                <input type="time" id="savings-time" required>
+                
+                <label for="savings-description">Descripción:</label>
+                <textarea id="savings-description"></textarea>
+                
+                <button type="submit">Agregar Transacción</button>
+            </form>
+
+            <div id="total-savings"></div>
+
+            <h2>Historial de Ahorros</h2>
+            <table id="savings-list">
+                <thead>
+                    <tr>
+                        <th>Fecha y Hora</th>
+                        <th>Tipo</th>
+                        <th>Monto (USD)</th>
+                        <th>Monto (Bs)</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div id="expenses" class="tab-content">
+            <h2>Agregar Gasto</h2>
+            <form id="expenses-form">
+                <label for="expense-amount">Monto (USD):</label>
+                <input type="number" id="expense-amount" step="0.01" required>
+                
+                <label for="expense-date">Fecha:</label>
+                <input type="date" id="expense-date" required>
+                
+                <label for="expense-time">Hora:</label>
+                <input type="time" id="expense-time" required>
+                
+                <label for="expense-category">Categoría:</label>
+                <select id="expense-category" required></select>
+                
+                <label for="expense-description">Descripción:</label>
+                <textarea id="expense-description"></textarea>
+                
+                <button type="submit">Agregar Gasto</button>
+            </form>
+
+            <h2>Historial de Gastos</h2>
+            <table id="expenses-list">
+                <thead>
+                    <tr>
+                        <th>Fecha y Hora</th>
+                        <th>Monto (USD)</th>
+                        <th>Monto (Bs)</th>
+                        <th>Categoría</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div id="overview" class="tab-content">
+            <h2>Resumen del Presupuesto</h2>
+            <div id="budget-summary"></div>
+
+            <h2>Actualizar Ingresos</h2>
+            <form id="income-form">
+                <label for="monthly-income">Ingresos Mensuales (USD):</label>
+                <input type="number" id="monthly-income" step="0.01" required>
+                <button type="submit">Actualizar Ingresos</button>
+            </form>
+
+            <h2>Gastos por Categoría</h2>
+            <div id="expenses-by-category"></div>
+
+            <h2>Resumen Diario de Gastos</h2>
+            <div id="daily-expenses-summary"></div>
+        </div>
+
+        <div id="settings" class="tab-content">
+            <h2>Configuración</h2>
+            <form id="exchange-rate-form">
+                <label for="exchange-rate">Tasa de cambio (Bs por 1 USD):</label>
+                <input type="number" id="exchange-rate" step="0.0001" required>
+                <button type="submit">Actualizar Tasa de Cambio</button>
+            </form>
+
+            <h2>Gestionar Categorías</h2>
+            <form id="category-form">
+                <label for="category-name">Nueva Categoría:</label>
+                <input type="text" id="category-name" required>
+                <button type="submit">Agregar Categoría</button>
+            </form>
+            <ul id="category-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+    
